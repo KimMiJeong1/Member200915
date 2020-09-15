@@ -5,27 +5,27 @@
 <mapper namespace="com.eb.member.mapper.MemberMapper">
 
 <select id="memberList" resultType="com.eb.member.dto.MemberVO">
-SELECT * FROM NEWMEMBERS ORDER BY mno ASC 
+SELECT * FROM MEMBERS ORDER BY mno ASC 
 </select>
 
 <insert id="memberRegister">
-Insert into newmembers (MNO, EMAIL, PWD, MNAME, CRE_DATE, MOD_DATE)
-VALUES(newmember_seq.nextval, #{email}, #{pwd}, #{mname}, sysdate, sysdate)
+Insert into members (MNO, EMAIL, PWD, MNAME, CRE_DATE, MOD_DATE)
+VALUES(member_seq.nextval, #{email}, #{pwd}, #{mname}, sysdate, sysdate)
 </insert>
 
 <select id="memberGetOne" resultType="com.eb.member.dto.MemberVO" parameterType="int">
-select * from newmembers where mno=#{mno}
+select * from members where mno=#{mno}
 </select>
 
 <update id="memberUpdate">
-update newmembers set email=#{email},pwd=#{pwd},mname=#{mname},mod_date=sysdate where mno=#{mno}
+update members set email=#{email},pwd=#{pwd},mname=#{mname},mod_date=sysdate where mno=#{mno}
 </update>
 
 <delete id="memberDeleteGet">
-DELETE FROM NEWMEMBERS WHERE mno =#{mno}
+DELETE FROM MEMBERS WHERE mno =#{mno}
 </delete>
 
 <select id="memberLogin"  resultType="com.eb.member.dto.MemberVO">
-SELECT * FROM NEWMEMBERS WHERE email=#{email} AND PWD =#{pwd}
+SELECT * FROM MEMBERS WHERE email=#{email} AND PWD =#{pwd}
 </select>
 </mapper>
